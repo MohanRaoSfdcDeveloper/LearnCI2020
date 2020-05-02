@@ -6,10 +6,10 @@ node {
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
-    def HUB_ORG=mohankvmr@salesforce.com
-    def SFDC_HOST = https://login.salesforce.com
-    def JWT_KEY_CRED_ID = ab073587-182a-4531-813a-3ef41fe92760
-    def CONNECTED_APP_CONSUMER_KEY=3MVG97quAmFZJfVzkjkH9WQ5jyxFX1gDe4k7Zrk9xNibhMofHH0BNMNO__ElvDwvL_x41w3QI3m8m.FnyffJm
+    def HUB_ORG="mohankvmr@salesforce.com"
+    def SFDC_HOST = "https://login.salesforce.com"
+    def JWT_KEY_CRED_ID = "ab073587-182a-4531-813a-3ef41fe92760"
+    def CONNECTED_APP_CONSUMER_KEY="3MVG97quAmFZJfVzkjkH9WQ5jyxFX1gDe4k7Zrk9xNibhMofHH0BNMNO__ElvDwvL_x41w3QI3m8m.FnyffJm"
 
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
