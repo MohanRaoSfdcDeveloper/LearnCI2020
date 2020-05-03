@@ -8,7 +8,7 @@ node {
 
     def HUB_ORG="mohankvmr@salesforce.com"
     def SFDC_HOST = "https://login.salesforce.com"
-    def JWT_KEY_CRED_ID = "2f36509c-c3a5-41b9-a7e3-5e9dd1b5991a"
+    def JWT_KEY_CRED_ID = "ab073587-182a-4531-813a-3ef41fe92760"
     def CONNECTED_APP_CONSUMER_KEY="3MVG97quAmFZJfVzkjkH9WQ5jyxFX1gDe4k7Zrk9xNibhMofHH0BNMNO__ElvDwvL_x41w3QI3m8m.FnyffJm"
 
     println 'KEY IS' 
@@ -16,18 +16,7 @@ node {
     println HUB_ORG
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
-    def toolbelt = tool 'sfdx'
-    environment {
-       GROOVY_HOME = tool name: 'Groovy-2.4.9', type: 'hudson.plugins.groovy.GroovyInstallation'
-    }
-    stages {
-    stage('Run Groovy') {
-        steps {
-
-           bat "${groovy_home}/bin/groovy <Jenkinsfile>"
-       }
-     }
-   }
+    def toolbelt = tool 'toolbelt'
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
@@ -37,13 +26,10 @@ node {
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
         stage('Deploye Code') {
             if (isUnix()) {
-		    println 'rc ==>'
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }else{
-		    
                  rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
-	    	
-	    }
+            }
             if (rc != 0) { error 'hub org authorization failed' }
 
 			println rc
@@ -53,7 +39,6 @@ node {
 				rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 			}else{
 			   rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
-			   
 			}
 			  
             printf rmsg
