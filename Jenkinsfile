@@ -18,8 +18,16 @@ node {
     println CONNECTED_APP_CONSUMER_KEY
     def toolbelt = tool 'sfdx'
     environment {
-      TOOL = tool name: 'sfdx', type:     'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+       GROOVY_HOME = tool name: 'Groovy-2.4.9', type: 'hudson.plugins.groovy.GroovyInstallation'
     }
+    stages {
+    stage('Run Groovy') {
+        steps {
+
+           bat "${groovy_home}/bin/groovy <Jenkinsfile>"
+       }
+     }
+   }
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
