@@ -17,6 +17,9 @@ node {
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
     def toolbelt = tool 'sfdx'
+    environment {
+      TOOL = tool name: 'sfdx', type:     'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+    }
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
