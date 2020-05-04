@@ -8,7 +8,7 @@ node {
     def SF_USERNAME="mohankvmr@salesforce.com"
     def SF_INSTANCE_URL = "https://login.salesforce.com"
     def SERVER_KEY_CREDENTALS_ID = "c26f254d-f219-43b7-8921-e8039d4a6abc"
-    def toolbelt = tool 'sfdx'
+    def toolbelt = tool 'toolbelt'
 
 
     // -------------------------------------------------------------------------
