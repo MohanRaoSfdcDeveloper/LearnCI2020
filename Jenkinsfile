@@ -34,19 +34,19 @@ node {
             // -------------------------------------------------------------------------
 
             stage('Authorize DevHub') {
-                rc = command "sfdx force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file} --setdefaultdevhubusername --setalias HubOrg"
-                if (rc != 0) {
-                    error 'Salesforce dev hub org authorization failed.'
-                }
+                //rc = command "sfdx force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile ${server_key_file} --setdefaultdevhubusername --setalias HubOrg"
+               // if (rc != 0) {
+                //    error 'Salesforce dev hub org authorization failed.'
+               // }
             }
         }
     //}
 }
 
-def command(script) {
-    if (isUnix()) {
-        return sh(returnStatus: true, script: script);
-    } else {
-        return bat(returnStatus: true, script: script);
-    }
-}
+//def command(script) {
+   // if (isUnix()) {
+   //     return sh(returnStatus: true, script: script);
+   // } else {
+   //     return bat(returnStatus: true, script: script);
+   // }
+//}
