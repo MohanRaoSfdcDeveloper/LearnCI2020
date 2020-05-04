@@ -4,10 +4,10 @@ import groovy.json.JsonSlurperClassic
 
 node {
 
-    def SF_CONSUMER_KEY="3MVG97quAmFZJfVzkjkH9WQ5jyxFX1gDe4k7Zrk9xNibhMofHH0BNMNO__ElvDwvL_x41w3QI3m8m.FnyffJm"
+    def SF_CONSUMER_KEY="3MVG97quAmFZJfVzkjkH9WQ5jy_8vXQlA0Siq6lLRwqdzMuLzPDCdqCWl.CwSv2oXARvus95rogbGmCVrn203"
     def SF_USERNAME="mohankvmr@salesforce.com"
     def SF_INSTANCE_URL = "https://login.salesforce.com"
-    def SERVER_KEY_CREDENTALS_ID = "c82fb156-cff0-41d3-b738-f509f62dd78d"
+    def SERVER_KEY_CREDENTALS_ID = "c26f254d-f219-43b7-8921-e8039d4a6abc"
     def toolbelt = tool 'sfdx'
 
 
