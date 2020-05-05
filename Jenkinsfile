@@ -13,6 +13,12 @@ node {
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
     def toolbelt = tool 'toolbelt'
+    
+    environment {
+
+        PATH = "C:\\WINDOWS\\SYSTEM32"
+
+     }
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
