@@ -4,6 +4,8 @@ import groovy.json.JsonSlurperClassic
 
 environment {
        env.PATH = env.PATH + ";c:\\Windows\\System32"
+       
+       println env.PATH
    }
 
 node {
