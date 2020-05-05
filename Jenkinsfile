@@ -38,6 +38,7 @@ node {
               if (isUnix()) {
                 rmsg = sh returnStdout: true, script: "${toolbelt} force:org:create --definitionfile config/enterprise-scratch-def.json --json --setdefaultusername"
               }else{
+                   println "bat command"
                    rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:org:create --definitionfile config/project-scratch-def.json --json --setdefaultusername"
               }
             printf rmsg
