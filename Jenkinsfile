@@ -4,21 +4,21 @@ node {
 
     /*def BUILD_NUMBER=env.BUILD_NUMBER
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
-    def SFDC_USERNAME*/
+    def SFDC_USERNAME
 
     def HUB_ORG="mohankvmr@salesforce.com"
     def SFDC_HOST = "https://login.salesforce.com"
     def JWT_KEY_CRED_ID = "628c1dee-16a0-41a2-bc89-ecb0acce2d8e"
-    def CONNECTED_APP_CONSUMER_KEY="3MVG97quAmFZJfVzkjkH9WQ5jy41kIBuz0nzEJPhjnwV9p1iQmyocXSf0b33UBVnaQw0TxqcFLfQL9ongUHFH"
+    def CONNECTED_APP_CONSUMER_KEY="3MVG97quAmFZJfVzkjkH9WQ5jy41kIBuz0nzEJPhjnwV9p1iQmyocXSf0b33UBVnaQw0TxqcFLfQL9ongUHFH"*/
+    
+    def HUB_ORG="mohankvmr@salesforce.com"
+    def SFDC_HOST = "https://login.salesforce.com"
+    def JWT_KEY_CRED_ID = "c26f254d-f219-43b7-8921-e8039d4a6abc"
+    def CONNECTED_APP_CONSUMER_KEY="3MVG97quAmFZJfVzkjkH9WQ5jy_8vXQlA0Siq6lLRwqdzMuLzPDCdqCWl.CwSv2oXARvus95rogbGmCVrn203"
+    
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
     def toolbelt = tool 'toolbelt'
-    
-    environment {
-
-        PATH = "C:\\WINDOWS\\SYSTEM32"
-
-     }
 
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
