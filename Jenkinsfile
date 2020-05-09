@@ -67,12 +67,12 @@ node {
             // Display test scratch org info.
             // -------------------------------------------------------------------------
 
-            /*stage('Display Test Scratch Org') {
+            stage('Display Test Scratch Org') {
                 rc = command "${toolbelt}/sfdx force:org:display --targetusername ciorg"
                 if (rc != 0) {
                     error 'Salesforce test scratch org display failed.'
                 }
-            }*/
+            }
 
 
             // -------------------------------------------------------------------------
