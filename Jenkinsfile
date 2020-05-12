@@ -120,9 +120,9 @@ node {
 
             stage('Create Package Version') {
                 if (isUnix()) {
-                    output = sh returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path MyProject/force-app --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg"
+                    output = sh returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path MyProject --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg"
                 } else {
-                    output = bat(returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path MyProject/force-app --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg").trim()
+                    output = bat(returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path MyProject --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg").trim()
                     output = output.readLines().drop(1).join(" ")
                 }
 
