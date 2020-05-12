@@ -112,7 +112,17 @@ node {
                     error 'Salesforce test scratch org deletion failed.'
                 }
             }*/
-
+            
+            // -------------------------------------------------------------------------
+            // Create package.
+            // -------------------------------------------------------------------------
+            
+             stage('Create Package') {
+                rc = command "${toolbelt}/sfdx force:package:version:create -p app1 -d MyProject/force-app --wait 10 -x"
+                if (rc != 0) {
+                    error 'Salesforce package creation failed.'
+                }
+            }
 
             // -------------------------------------------------------------------------
             // Create package version.
