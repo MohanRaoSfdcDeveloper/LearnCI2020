@@ -118,7 +118,7 @@ node {
             // -------------------------------------------------------------------------
             
              stage('Create Package') {
-                rc = command "${toolbelt}/sfdx force:package:version:create -p app1 -d MyProject/force-app --wait 10 -x"
+                rc = command "${toolbelt}/sfdx force:package:version:create -p app1 -d MyProject --wait 10 -x"
                 if (rc != 0) {
                     error 'Salesforce package creation failed.'
                 }
@@ -130,9 +130,9 @@ node {
 
             stage('Create Package Version') {
                 if (isUnix()) {
-                    output = sh returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path /MyProject --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg"
+                    output = sh returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path MyProject --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg"
                 } else {
-                    output = bat(returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path /MyProject --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg").trim()
+                    output = bat(returnStdout: true, script: "${toolbelt}/sfdx force:package:version:create --path MyProject --package ${PACKAGE_NAME} --installationkeybypass --wait 10 --json --targetdevhubusername HubOrg").trim()
                     output = output.readLines().drop(1).join(" ")
                 }
 
