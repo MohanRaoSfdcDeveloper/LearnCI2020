@@ -118,7 +118,7 @@ node {
             // -------------------------------------------------------------------------
             
              stage('Create Package') {
-                rc = command "${toolbelt}/sfdx force:package:create --name MyProject1 --packagetype Unlocked --path force-app --nonamespace"
+                rc = command "${toolbelt}/sfdx force:package:create --name MyProject1 --description MyProject1 --packagetype Unlocked --path force-app --nonamespace"
                 if (rc != 0) {
                     error 'Salesforce package creation failed.'
                 }
